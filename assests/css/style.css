@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins&display=swap');
+html{
+    scroll-behavior: smooth;
+}
 
 .nav-buttons {
   margin-left: 60% !important;
@@ -113,6 +116,7 @@ button:hover{
     .nav-buttons i{
         margin-left: 15px;
     }
+    
 }
 
 #home{
@@ -143,13 +147,21 @@ button:hover{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 80px;
-    margin-bottom: 20px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.details h2{
+    text-align: center;
+}
 
 #new .one{
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -244,4 +256,10 @@ hr{
 
 #banner button:hover{
     background-color: #1d1d1d;
+}
+
+#cloths img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
