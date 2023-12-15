@@ -342,6 +342,7 @@ footer .copyright img{
 
 footer .payments img{
     transform: translatey(-85px);
+    margin-bottom: 0 !important;
 }
 
 .insta img{
@@ -356,5 +357,14 @@ footer .payments img{
     padding: 5px;
     
 
+}
+
+footer p a{
+    color: #ff9e40;
+    text-decoration: none;
+}
+
+.payments{
+    margin-bottom: 0 !important;
 }
 
