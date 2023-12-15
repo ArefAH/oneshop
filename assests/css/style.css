@@ -232,7 +232,6 @@ hr {
   height: 60vh;
   background-size: cover;
   background-position-x: center;
-  background-position-y: 90px;
   background-repeat: no-repeat;
   background-attachment: fixed;
   display: flex;
@@ -296,12 +295,17 @@ footer h5{
 
 footer li {
     padding-bottom: 3px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transform: translateX(-32px);
 }
 
 footer li a{
     font-size: 0.9rem;
     color: #faebd7;
     text-decoration: none;
+    transition: 0.4s ease;
 }
 
 footer li a:hover{
@@ -360,6 +364,11 @@ footer .payments img{
 }
 
 footer p a{
+    color: #faebd7;
+    text-decoration: none;
+    transition: 0.4s ease;
+}
+footer p a:hover{
     color: #ff9e40;
     text-decoration: none;
 }
