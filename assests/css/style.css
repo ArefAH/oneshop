@@ -95,6 +95,10 @@ button:hover{
     .nav-buttons{
         margin-top: 10px;
         margin-left: 0!important;
+        
+    }
+    #new .one .details h2{
+        font-size: 25px;
     }
 
     .nav-buttons ul{
@@ -112,7 +116,7 @@ button:hover{
 }
 
 #home{
-    background-image: url(../imgs/background.png);
+    background-image: url(../imgs/bg.png);
     width: 100%;
     height: 100vh;
     background-size: cover;
@@ -139,8 +143,8 @@ button:hover{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin-left: 50px;
-    
+    margin-left: 80px;
+    margin-bottom: 20px;
 }
 
 
