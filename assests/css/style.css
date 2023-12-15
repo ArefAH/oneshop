@@ -143,7 +143,7 @@ button:hover {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
+  filter: drop-shadow(5px 12px 8px rgba(0, 0, 0, 0.25));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -262,16 +262,26 @@ hr {
   width: 100%;
   height: 60%;
   object-fit: contain;
+  filter: drop-shadow(5px 12px 8px rgba(0, 0, 0, 0.25));
 }
 #coats .row img {
   width: 100%;
   height: 60%;
   object-fit: contain;
+  filter: drop-shadow(5px 12px 8px rgba(0, 0, 0, 0.25));
 }
 #shoes .row img {
   width: 100%;
   height: 60%;
   object-fit: contain;
+  filter: drop-shadow(5px 12px 8px rgba(0, 0, 0, 0.25));
+}
+
+#shirts .row img {
+  width: 100%;
+  height: 60%;
+  object-fit: contain;
+  filter: drop-shadow(5px 12px 8px rgba(0, 0, 0, 0.25));
 }
 
 footer{
