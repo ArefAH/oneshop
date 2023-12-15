@@ -258,8 +258,10 @@ hr{
     background-color: #1d1d1d;
 }
 
-#cloths img{
+.row img{
     width: 100%;
-    height: 100%;
+    height: 60%;
     object-fit: contain;
 }
+
+
