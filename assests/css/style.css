@@ -258,7 +258,17 @@ hr{
     background-color: #1d1d1d;
 }
 
-.row img{
+#featured .row img{
+    width: 100%;
+    height: 60%;
+    object-fit: contain;
+}
+#cloths .row img{
+    width: 100%;
+    height: 60%;
+    object-fit: contain;
+}
+#shoes .row img{
     width: 100%;
     height: 60%;
     object-fit: contain;
