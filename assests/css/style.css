@@ -135,9 +135,9 @@ button:hover {
   align-items: flex-start;
 }
 
-@media (max-width: 1000px){
+@media (max-width: 1050px){
   #home{
-    background-position-x: -350px;
+    background-position-x: -600px;
   }
 }
 @media (max-width: 700px){
