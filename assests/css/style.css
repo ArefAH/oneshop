@@ -434,13 +434,17 @@ footer p a:hover{
 .cart table{
     width: 100%;
     border-collapse: collapse;
-    table-layout: fixed;
+    table-layout: auto;
     white-space: nowrap;
 }
 
 .cart .product-info{
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #fd774b;
+    border-bottom-right-radius: 200px;
 }
 
 .cart th{
@@ -459,13 +463,29 @@ footer p a:hover{
     font-size: 15px;
     text-decoration: none;
     font-weight: bold;
+    background-color: none;
+    border: none;
+    width: 100;
+}
+
+.remove-btn{
+    background-color: #fff;
+    color: #ff9e40;
+    border: none;
+    width: 100% !important;
+    padding: 0 !important;
+    text-align: left !important;
 }
 
 .cart td img{
-    width: 100px;
-    height: 60px;
-    margin-right: 10px;
-    transform: translatey(15px);
+    height: 75px;
+    object-fit: cover;
+    padding-right: 200%;
+}
+
+.cart-desc{
+    padding-left: auto;
+    
 }
 
 .cart td input{
@@ -473,10 +493,12 @@ footer p a:hover{
     height: 30px;
     padding: 5px;
 }
-
-
+ 
+.cart .product-info .cart-desc{
+  padding-left: 10px;
+}
 .cart .product-info p{
-    margin: 3px;
+    margin-top: 10px;
 }
 
 .cart-total{

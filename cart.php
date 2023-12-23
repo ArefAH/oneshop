@@ -1,3 +1,48 @@
+<?php
+  session_start();
+
+  if(isset($_POST['add_to_cart'])){
+    if(isset($_SESSION['cart'])){
+      $product_array_ids = array_column($_SESSION['cart'], 'product_id');
+      if(!in_array($_POST['product_id'], $product_array_ids)){
+        $product_array = array(
+          'product_id' => $_POST['product_id'],
+          'product_name' => $_POST['product_name'],
+          'product_price' => $_POST['product_price'],
+          'product_image' => $_POST['product_image'],
+          'product_quantity' => $_POST['product_quantity']
+        );
+
+        $_SESSION['cart'][$_POST['product_id']] = $product_array;
+        
+      }else{
+        echo "<script>alert('Product is already added in the cart')</script>";
+        
+      }
+    }else{
+        $product_array = array(
+          'product_id' => $_POST['product_id'],
+          'product_name' => $_POST['product_name'],
+          'product_price' => $_POST['product_price'],
+          'product_image' => $_POST['product_image'],
+          'product_quantity' => $_POST['product_quantity']
+        );
+
+        $_SESSION['cart'][$_POST['product_id']] = $product_array;
+
+
+      
+    }
+  } else if (isset($_POST['remove_product'])){
+    unset($_SESSION['cart'][$_POST['product_id']]);
+
+
+  } else{
+    header("location: index.php");
+  }
+ 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,6 +65,11 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
     />
     <link rel="stylesheet" href="./assests/css/style.css" />
+    <style>
+      html{
+        overflow-x: hidden;
+      }
+    </style>
   </head>
   <body>
     <!-- navbar -->
@@ -69,46 +119,77 @@
             </li>
 
             <li class="nav-item">
-              <i onclick="window.location.href='cart.html';" class="bi bi-bag"></i>
-              <i class="bi bi-person-circle"></i>
+              <i class="bi bi-bag"></i>
+              <i onclick="window.location.href='login.html';" class="bi bi-person-circle"></i>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
+    <!--Cart-->
+    <section class="cart container my-5 py-5">
+      <div class="container mt-5">
+        <h2 class="font-weight-bold">Your Cart</h2>
+        <hr />
+      </div>
 
-    <!--Login-->
-    <section class="my-5 py-5 login">
-        <div class="container text-center mt-5">
-            <h2>Login</h2>
-            <hr class="mx-auto">
-            
-            <div class="row mt-5">
-                <div class="col-lg-6 col-md-6 col-12 d-flex justify-content-center w-100">
-                    <form>
-                        <div class="form-group email-group mb-5">
-                          <i class="bi bi-envelope"></i>
-                            <input type="email" class="" id="email" placeholder="Email">
-                        </div>
+      <table class="mt-5 pt-5">
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+        </tr>
 
-                        <div class="form-group pass-group">
-                          <i class="bi bi-lock"></i>
-                            <input type="password" class="" id="password" placeholder="Password">
-                        </div>
 
-                        <button type="submit" class=" mt-3 login-btn">Login</button>
-                    </form>
-                </div>
-            </div>
 
-            <p class="mt-3">Don't have an account? <a href="signup.html">Create one</a></p>
+        <?php foreach($_SESSION['cart'] as $key => $value) { ?>
+          <tr>
+    <td>
+      <div class="product-info">
+        <img src="assests/imgs/<?php echo $value['product_image']; ?>" alt="" />
+        <div class="cart-desc">
+          <small><p><?php echo $value['product_name'];?></p></small>
+          <small><span>$</span><?php echo $value['product_price']; ?></small>
+          <br />
+          <form action="cart.php" method="post">
+            <input type="hidden" name="product_id" value="<?php echo $value['product_id']; ?>">
+            <input type="submit" name="remove_product" class="remove-btn" value="Remove">
+          </form>
         </div>
+      </div>
+    </td>
+
+    <td>
+      <input type="number" value="<?php echo $value['product_quantity']; ?>" min="1" />
+      <a href="#" class="edit-btn">Edit</a>
+    </td>
+
+    <td>
+      <span>$</span>
+      <span class="product-price"><?php echo $value['product_price']; ?></span>
+    </td>
+  </tr>
+        
+        <?php } ?>
+          
+      </table>
+
+      <div class="cart-total">
+        <table>
+            <tr>
+                <td>Subtotal</td>
+                <td>$199.8</td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>$199.8</td>
+            </tr>
+        </table>
+      </div>
+
+      <div class="checkout-container"><button onclick="window.location.href='checkout.html';" class="btn checkout-btn">Checkout</button></div>
     </section>
-
-
-
-
 
    <!--Footer-->
    <footer class="mt-5 py-5">
